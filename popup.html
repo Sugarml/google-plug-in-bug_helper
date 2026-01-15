@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 400px; padding: 15px; font-family: "Microsoft JhengHei", sans-serif; background: #f8f9fa; }
+    h4 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 5px; margin: 0 0 10px 0; }
+    .section { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 10px; }
+    label { font-size: 11px; font-weight: bold; display: block; margin-top: 8px; color: #333; }
+    textarea, input { width: 100%; border: 1px solid #ccc; border-radius: 4px; padding: 6px; font-size: 11px; box-sizing: border-box; }
+    textarea { height: 60px; }
+    .status-bar { padding: 8px 12px; border-radius: 4px; font-size: 11px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; }
+    .led { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 8px; }
+    .green-mode { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+    .red-mode { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    .scenario-btn { background: #6f42c1; color: white; padding: 5px 10px; border-radius: 4px; font-size: 11px; cursor: pointer; border: none; margin: 2px; }
+    button#copyBtn { width: 100%; padding: 12px; background: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 10px; font-size: 14px; }
+    .reset-link { font-size: 10px; color: #dc3545; cursor: pointer; float: right; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h4>B2B保單測試小工具 v5.1</h4>
+  <div id="statusWrapper" class="status-bar green-mode">
+    <span><span id="ledLight" class="led" style="background:#28a745;"></span><span id="statusText">等待業務 API 中...</span></span>
+  </div>
+  <div class="section">
+    <label>快速填充測試場景 (免手打步驟)</label>
+    <div style="margin-top:5px;">
+      <button class="scenario-btn" id="scenMotor">🚗 汽車新保</button>
+      <button class="scenario-btn" id="scenSearch">🔍 案件查詢</button>
+      <button class="scenario-btn" id="scenPrint">🖨️ 印單/產PDF</button>
+    </div>
+  </div>
+  <div class="section">
+    <span id="resetBtn" class="reset-link">🔄 清除重置</span>
+    <label>API URL & Trace ID (自動連動)</label>
+    <input type="text" id="apiUrl" readonly placeholder="尚未偵測到核心 API">
+    <input type="text" id="traceId" readonly style="margin-top:5px;" placeholder="尚未偵測到 ID">
+  </div>
+  <div class="section">
+    <label>操作步驟</label>
+    <textarea id="steps" placeholder="點選上方按鈕快填..."></textarea>
+    <label>預期結果 / 實際結果</label>
+    <textarea id="expected" placeholder="預期結果" style="margin-bottom:5px; height:40px;"></textarea>
+    <textarea id="actual" placeholder="實際結果" style="height:40px;"></textarea>
+  </div>
+  <button id="copyBtn">複製完整報告</button>
+  <div id="sysInfo" style="font-size:10px; color:#999; text-align:center; margin-top:10px;">系統偵測中...</div>
+  <script src="popup.js"></script>
+</body>
+</html>

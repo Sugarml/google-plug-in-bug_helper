@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "B2B保單測試小工具",
+  "version": "5.1",
+  "permissions": ["activeTab", "clipboardWrite", "scripting", "webRequest", "storage"],
+  "host_permissions": ["<all_urls>"], 
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html" }
+}
